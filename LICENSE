@@ -1,21 +1,39 @@
-MIT License
+# License Statement
 
-Copyright (c) 2023 Dayton Nyamai
+## Copyright Notice
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All contents, including code, Jupyter Notebooks, and other materials, in this GitHub repository 
+are protected by copyright and are intended for personal use only. Any form of sharing, distribution,
+duplication, or reproduction without written permission from aiquants Research is strictly prohibited.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## Disclaimer
+
+The contents, Python code, Jupyter Notebooks, and other materials provided in this repository are 
+offered without warranties or representations, to the extent permitted by applicable law. The code 
+and materials may be a work in progress, and substantial additions, changes, updates, etc. may 
+occur in the future. It is advisable to regularly check for updates.
+
+
+## No Recommendation or Investment Advice
+
+None of the materials in this repository should be considered as a recommendation or investment advice. 
+The materials are solely intended for technical illustration purposes. Trading financial instruments, 
+including leveraged and unleveraged trading, as well as contracts for difference (CFDs), involve various
+risks. It is essential to understand and manage these risks.
+
+
+## Contact Information
+
+For any inquiries or permission requests, please contact:
+
+aiquants Research
+Email: [github@aiquants.io](mailto:github@aiquants.io)
+Website: [www.aiquants.io](https://www.aiquants.io)
+
+
+## Date of Last Update
+
+This license statement was last updated in July 2023.
+
+(c) Dayton Nyamai | aiquants Research | July 2023
