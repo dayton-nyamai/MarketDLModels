@@ -1,4 +1,15 @@
 
+#
+#
+# The script below encompasses essential data preprocessing steps, including the
+# alignment of dates, calculation of log returns, and creation of lagged columns. 
+# These preparatory measures are crucial for the subsequent implementation of deep 
+# learning trading strategies.
+#
+# aiquants Research
+# (c) Dayton Nyamai
+#
+#
 
 import pandas as pd
 import numpy as np
