@@ -1,18 +1,58 @@
-Using TPUs in Google Colab - First steps
+Using TPU VM Clound
 
+Approach A
+1. Set up a Google Cloud project
+2. Enable the Compute Engine and TPU APIs
+3. Create a TPU VM
+4. Connect to the TPU VM - connect  using the SSH option just next to the instance
+5. Install Jupyter Lab
+         pip install jupyterlab
+
+6. Start Jupyter Lab
+         jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+
+7. Access Jupyter Lab - on local machine terminal
+         gcloud compute ssh --project dl-market-predictions --zone europe-west4-a -- -L 8888:localhost:8888
+
+8. Access Jupyter Lab in a web browser
+         http://localhost:8888
+That's it! You have now accessed a TPU VM using Google Cloud and are using Jupyter Lab on the TPU VM.
+
+More info
+1. https://zzzcode.ai/answer-question?id=15a78e83-a26a-4d9d-a161-40c7ba775aca
+
+
+
+
+Approach B
 1. Connect to the  Cloud TPU VM from the  Local terminal
 ------------
          gcloud compute tpus tpu-vm ssh avenirbold \
 --zone europe-west4-a
 ------------
+2. create a file
+a. nano avenir_demo.py
+b. Copy paste the python script and run
+         python3 avenir_demo.py
+3. That is it!! 
 
-2. Once you are connected, go to Colab
+More info: 
+1. https://github.com/GoogleCloudPlatform/cloud-shell-tutorials/blob/master/cloud-console-tutorials/cloud_tpu_quickstart/cloud_tpu_quickstart.md
+2. https://github.com/GoogleCloudPlatform/cloud-shell-tutorials/blob/master/cloud-console-tutorials/cloud_tpu_quickstart/cloud_tpu_quickstart-en-GB.md
+3. https://lightning.ai/docs/pytorch/1.4.5/advanced/tpu.html#:~:text=Colab%20is%20like%20a%20jupyter,research.google.com%2F.
+4. BEST: https://zzzcode.ai/answer-question?id=15a78e83-a26a-4d9d-a161-40c7ba775aca
+--------------------------------------
+
+
+Using TPUs in Google Colab - First steps
+
+1. Go to Colab
    First enter the Colab, make sure you specify the runtime environment. 
     a. Go to Runtime, click “Change Runtime Type”, and set the Hardware accelerator to “TPU”.
     b. Click 'connect' (on the right corner)
 
 
-3. Check TPU Availability | configure TPU
+2. Check TPU Availability | configure TPU
    a. Ensure that TPU is available in  Colab environment.  You can check for TPU address / availability by running the 
        following code snippet:
 ------------
