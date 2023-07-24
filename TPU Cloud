@@ -1,9 +1,10 @@
 Using TPUs in Google Colab - First steps
 
 1. Connect to the  Cloud TPU VM from the  Local terminal
+------------
          gcloud compute tpus tpu-vm ssh avenirbold \
 --zone europe-west4-a
-
+------------
 
 2. Once you are connected, go to Colab
    First enter the Colab, make sure you specify the runtime environment. 
@@ -14,10 +15,11 @@ Using TPUs in Google Colab - First steps
 3. Check TPU Availability | configure TPU
    a. Ensure that TPU is available in  Colab environment.  You can check for TPU address / availability by running the 
        following code snippet:
+------------
 import tensorflow as tf
 tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
 print("TPU address:", tpu.master())
-
+------------
     b. The above code will generate the  TPU address, which looks similar to:
                        TPU address: grpc://10.34.40.194:8470
 
@@ -26,6 +28,7 @@ print("TPU address:", tpu.master())
        of the TPU cluster
 
     d. Once we have the TPU address, we can now assign it to the tpu_address variable  and define the TPU cluster 
+------------
 import tensorflow as tf
 
 # Define TPU address
@@ -37,13 +40,14 @@ tpu_resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu=tpu_address
 # Connect to the TPU
 tf.config.experimental_connect_to_cluster(tpu_resolver)
 tf.tpu.experimental.initialize_tpu_system(tpu_resolver)
-
+------------
       e. Verify TPU Connection
          After connecting to the TPU,  verify the connection by printing the TPU topology using the code snipet below / The above code also 
          generates the topology, either way
+------------
 print('TPU:', tf.distribute.cluster_resolver.TPUClusterResolver().master())
 print('TPU topology:', tf.tpu.experimental.initialize_tpu_system(tpu_resolver))
-      
+------------    
       f. The TPU topology will be similar to the following
                       <tensorflow.python.tpu.topology.Topology at 0x7b2a80bd6740>
 
