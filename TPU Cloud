@@ -10,6 +10,10 @@ gcloud compute tpus tpu-vm create lean-column \
 B. Connect
 gcloud compute tpus tpu-vm ssh ean-column \
   --zone europe-west4-a
+
+On Console, click the SSh next to the instance
+This will take you direct to the instance terminal. Install packages here. Run scripts using python3 testl.py, unless 
+you connect with jupyter lab
 ----------------
 
 
