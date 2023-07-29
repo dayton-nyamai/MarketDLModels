@@ -1,3 +1,16 @@
+#
+# The script below  implements the Long Short Term Memory (LSTM) model for predicting market movements.
+# The script includes  essential steps such as model fitting, training, evaluation, and prediction on  
+# both training and testing data. Additionally, it compares the performance of the RNNs trading strategy
+# with the passive benchmark returns.
+#
+# aiquants Research
+# (c) Dayton Nyamai
+#
+#
+
+
+# Import the necessary libraries
 import pandas as pd
 import numpy as np
 from tensorflow.keras.models import Sequential
