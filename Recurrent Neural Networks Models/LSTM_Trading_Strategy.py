@@ -16,6 +16,12 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.optimizers import Adam
 
+from pylab import mpl, plt 
+plt.style.use('seaborn-v0_8') 
+mpl.rcParams['font.family'] = 'serif' 
+%matplotlib inline
+
+
 # Load the historical data and drop any row with missing values
 url = 'https://raw.githubusercontent.com/dayton-nyamai/MarketDLModels/main/data/data.csv'
 data = pd.read_csv(url, index_col=0, parse_dates=True).dropna()
