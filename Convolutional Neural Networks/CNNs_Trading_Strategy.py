@@ -83,3 +83,30 @@ training_data[['returns', 'strategy']].sum().apply(np.exp)
 
 # Plots and compares the strategy performance to the benchmark performance (in-sample).
 training_data[['returns', 'strategy']].cumsum().apply(np.exp).plot(figsize=(10, 6));
+plt.figtext(0.5, 0.05, 'Fig. 1.4 Gross performance of EUR/USD compared to the CNNs-based strategy', style='italic',ha='center')
+plt.figtext(0.5, -0.01, '(in-sample, no transaction costs)', style='italic',ha='center')
+plt.show()
+
+# Evaluate the performance of the model on testing data
+model.evaluate(X_test, y_test)
+test_predictions = np.where(model.predict(X_test) > 0.5, 1, 0)
+
+# Transforms the predictions into long-short positions, +1 and -1
+test_data['prediction'] = np.where(test_predictions > 0, 1, -1)
+test_data['prediction'].value_counts()
+
+# Calculate the strategy returns given the positions
+test_data['strategy'] = test_data['prediction'] * test_data['returns']
+test_data[['returns', 'strategy']].sum().apply(np.exp)
+
+
+# Plots and compares the strategy performance to the benchmark performance (out-of-sample)
+test_data[['returns', 'strategy']].cumsum().apply(np.exp).plot(figsize=(10, 6)); 
+plt.figtext(0.5, 0.05, 'Fig. 1.5 Gross performance of EUR/USD compared to the DNNs-based strategy', style='italic',ha='center')
+plt.figtext(0.5, -0.01, '(out-of-sample, no transaction costs)', style='italic',ha='center')
+
+plt.show()
+
+
+
+
