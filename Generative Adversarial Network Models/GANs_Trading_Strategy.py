@@ -23,14 +23,20 @@ plt.style.use('seaborn-v0_8')
 mpl.rcParams['font.family'] = 'serif' 
 %matplotlib inline
 
-# Load the data
-url = 'https://raw.githubusercontent.com/dayton-nyamai/MarketDLModels/main/data/data.csv'
-data = pd.read_csv(url, index_col=0, parse_dates=True).dropna()
+# Load the historical data and drop any row with missing values
+url = 'https://raw.githubusercontent.com/dayton-nyamai/MarketDLModels/main/data/historical_data.csv'
+raw = pd.read_csv(url, index_col=0, parse_dates=True).dropna() 
+raw.info() #the raw data meta information
 
 # Select the target symbol
-symbol = ['EUR=']
-data = pd.DataFrame(data[symbol])
-data.rename(columns={'EUR=': 'price'}, inplace=True)
+symbol = ['EURUSD=X']
+data = pd.DataFrame(raw[symbol])
+
+# Align dates and rename the column containing the price data to 'price'.
+start_date = data.index.min()
+end_date = data.index.max()
+data = data.loc[start_date:end_date]
+data.rename(columns={'EURUSD=X': 'price'}, inplace=True)
 
 # Calculate log returns and create direction column
 data['returns'] = np.log(data['price'] / data['price'].shift(1))
