@@ -15,12 +15,20 @@ from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense
 from tensorflow.keras.optimizers import Adam
 
 # Load the historical data and drop any row with missing values
-url = 'https://raw.githubusercontent.com/dayton-nyamai/MarketDLModels/main/data/data.csv'
-data = pd.read_csv(url, index_col=0, parse_dates=True).dropna()
+url = 'https://raw.githubusercontent.com/dayton-nyamai/MarketDLModels/main/data/historical_data.csv'
+raw = pd.read_csv(url, index_col=0, parse_dates=True).dropna() 
+raw.info() #the raw data meta information
 
-symbol = ['EUR=']
-data = pd.DataFrame(data[symbol])
-data.rename(columns={'EUR=': 'price'}, inplace=True)
+# Select the symbol and create a DataFrame
+symbol = ['EURUSD=X']
+data = pd.DataFrame(raw[symbol]) 
+
+# Align dates and rename the column containing the price data to 'price'
+start_date = data.index.min()
+end_date = data.index.max()
+data = data.loc[start_date:end_date]
+data.rename(columns={'EURUSD=X': 'price'}, inplace=True)
+data.round(4).head()
 
 # Calculate log returns and create direction column
 data['returns'] = np.log(data['price'] / data['price'].shift(1))
